@@ -1,57 +1,57 @@
 import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber'
 import React, { Suspense } from 'react'
 import { SpotLight, Text, ScrollControls, Scroll, Html } from '@react-three/drei'
-import { EffectComposer, Noise, Vignette } from '@react-three/postprocessing'
+import { EffectComposer, Vignette } from '@react-three/postprocessing'
 import { TextureLoader, Vector3 } from 'three'
 
 const ART_PIECES = [
   {
-    title: 'Beautiful Beast',
-    imgPath: '/beauty_and_beast.jpeg',
+    title: '08-22-2023 - A special day for you and you chose to see me  ',
+    imgPath: '/birthday 2.jpeg',
   },
   {
-    title: 'Stillness',
-    imgPath: '/crane.jpeg',
+    title: '08/26/2023 - The day of your brothers wedding. Fun night with you and everyone',
+    imgPath: '/us.png',
   },
   {
-    title: 'Foxy',
-    imgPath: '/foxy.jpeg',
+    title: '09/01/2023 - Dropped off springrolls while you were working hard on your kaws set. Love helping you pick out your nails',
+    imgPath: '/springroll.jpeg',
   },
   {
-    title: 'Gentle Giant',
-    imgPath: '/horse_sketch.jpeg',
+    title: '09/05/2023 - You had a family BBQ and I saw your whole family. Your aunt did the heart around us teasing us. Grandma drank 3 BEERS! Met jaileen for the first time and making you that smore',
+    imgPath: '/familybbq.jpeg',
   },
   {
-    title: 'Purity',
-    imgPath: '/kindness.jpeg',
+    title: '09/07/2023 - Took me out on my birthday and first time ordering drinks with you ',
+    imgPath: '/birthday.jpeg',
   },
   {
-    title: 'Lonely Together',
-    imgPath: '/lonely_together.jpeg',
+    title: '09/09/2023 - Fun night at Sojuba with everyone.',
+    imgPath: '/sojuba.jpeg',
   },
   {
-    title: 'Owl',
-    imgPath: '/owl.jpeg',
+    title: '09/11/2023 - The day where you told me ur weird cravings and how u can eat 5 different things at once. Toast with cheese and imitation crab, cake , mochi ,matcha milk tea and noodles.',
+    imgPath: '/facetime.png',
   },
   {
-    title: 'Menace',
-    imgPath: '/panther.jpeg',
+    title: '12/25/2023 - First christmas with each other',
+    imgPath: '/christmaspt2.jpeg',
   },
   {
-    title: 'Paradise',
-    imgPath: '/paradise.jpeg',
+    title: '1/2/2024 - 1/9/2024 - First trip together, so many memorable moments. This trip made our connection even stronger and I fell in love with you more',
+    imgPath: '/cancunpt2.jpeg',
   },
   {
-    title: 'Friendship',
-    imgPath: '/sprited_away.jpeg',
+    title: 'Cancun ',
+    imgPath: '/cancun.jpeg',
   },
   {
-    title: 'Wanderlust',
-    imgPath: '/wonder.jpeg',
+    title: 'Cancun',
+    imgPath: '/Cancunpt3.jpeg',
   },
   {
-    title: 'Serenity',
-    imgPath: '/forest.jpeg',
+    title: 'Cancun',
+    imgPath: '/Cancunpt4.jpeg',
   },
 ]
 
@@ -87,15 +87,16 @@ const WallArt = (props) => {
         </mesh>
 
         <mesh position={[(i + 1) * (imageWidth + gap) + (i + 1), -2.5, 0]}>
-          <planeGeometry args={[1.25, 0.5]} />
-          <meshStandardMaterial color={0xFAEBD7} />
+          {/* <planeGeometry args={[1.25, 0.5]} />
+          <meshStandardMaterial color={0xFAEBD7} /> */}
           <Text
             position-z={0}
-            scale={[2, 2, 2]}
-            color="black"
+            scale={[1, 1, 1]}
+            color="white"
             anchorX="center"
             anchorY="middle"
-            font="https://fonts.gstatic.com/s/sacramento/v5/buEzpo6gcdjy0EiZMBUG4C0f-w.woff"
+            maxWidth={2}
+            font="/Users/yoseple/Downloads/Oswald/Oswald-VariableFont_wght.ttf"
           >
             {art.title}
           </Text>
@@ -116,7 +117,7 @@ const Scene = () => {
         Loading 3D Art Gallery...
       </Html>
     }>
-      <ScrollControls infinite horizontal damping={4} pages={39*Math.exp(-0.11 * screenWidth) } distance={1}>
+      <ScrollControls infinite={false} horizontal damping={4} pages={39*Math.exp(-0.11 * screenWidth) } distance={1}>
         <Scroll>
           <Text
             position-z={0}
@@ -127,7 +128,7 @@ const Scene = () => {
             font="https://fonts.gstatic.com/s/sacramento/v5/buEzpo6gcdjy0EiZMBUG4C0f-w.woff"
             castShadow
           >
-            Creativity is allowing yourself to make mistakes.
+            Read me when you need me
           </Text>
           <Text
             position-z={1}
@@ -139,7 +140,7 @@ const Scene = () => {
             font="https://fonts.gstatic.com/s/sacramento/v5/buEzpo6gcdjy0EiZMBUG4C0f-w.woff"
             castShadow
           >
-            Art is knowing which ones to keep.
+            A documentation of Diem and Sep 
           </Text>
           <Text
             position={[0, -0.5, 1.5]}
@@ -148,9 +149,9 @@ const Scene = () => {
             font="https://fonts.gstatic.com/s/sacramento/v5/buEzpo6gcdjy0EiZMBUG4C0f-w.woff"
           // castShadow
           >
-            ~ Scott Adams
+            ~ I love you
           </Text>
-
+            
           {ART_PIECES.map((art, i) => {
             return <WallArt
               key={i}
