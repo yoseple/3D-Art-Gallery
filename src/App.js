@@ -61,7 +61,7 @@ const WallArt = (props) => {
   const gap = 4;
   const imageWidth = 3;
   const texture = useLoader(TextureLoader, art.imgPath)
-  const isArtLastPiece = 1 === ART_PIECES.length - 1;
+
 
   return (
     <>
