@@ -42,15 +42,15 @@ const ART_PIECES = [
     imgPath: '/cancunpt2.jpeg',
   },
   {
-    title: 'Cancun ',
+    title: 'Cancun - LOL! us looking at the beach when your parents took us out on that tour  ',
     imgPath: '/cancun.jpeg',
   },
   {
-    title: 'Cancun',
+    title: 'Cancun - Our first night in cancun and it felt surreal that i was here with my favorite person',
     imgPath: '/Cancunpt3.jpeg',
   },
   {
-    title: 'Cancun',
+    title: 'Cancun - I love this picture of us and the moment on that image of us just chilling on the bed and having conversations just about anything',
     imgPath: '/Cancunpt4.jpeg',
   },
 ]
@@ -61,6 +61,7 @@ const WallArt = (props) => {
   const gap = 4;
   const imageWidth = 3;
   const texture = useLoader(TextureLoader, art.imgPath)
+  const isArtLastPiece = 1 === ART_PIECES.length - 1;
 
   return (
     <>
@@ -111,10 +112,12 @@ const Scene = () => {
   console.log("screenWidth", screenWidth)
   const textScale = screenWidth < 5.5 ? 2 : 4
 
+
+
   return (
     <Suspense fallback={
       <Html style={{ fontSize: '6vw', whiteSpace: 'nowrap', color: 'white' }} center>
-        Loading our Memories together
+        Loading Our memories together
       </Html>
     }>
       <ScrollControls infinite={false} horizontal damping={4} pages={39*Math.exp(-0.11 * screenWidth) } distance={1}>
@@ -160,6 +163,12 @@ const Scene = () => {
             />
           })
           }
+           <Html position={[100, 0.5, 1]} center>
+            <a href="https://transcendent-kulfi-738200.netlify.app" target="_blank" rel="noopener noreferrer" style={{ color: '#FFFFFF', textDecoration: 'underline', fontSize: '20px' }}>
+              ONE LAST SURPRISE!!!
+            </a>
+          </Html>
+          
         </Scroll>
       </ScrollControls>
     </Suspense >
@@ -171,6 +180,7 @@ const Rig = () => {
   const vec = new Vector3()
   return useFrame(() => camera.position.lerp(vec.set(mouse.x * 0.5, mouse.y * 0.5, camera.position.z), 0.2))
 }
+
 
 function App() {
   return (
